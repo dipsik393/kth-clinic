@@ -1,0 +1,615 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+}
+
+.hero {
+  position: relative;
+  height: 600px;
+  background: url("../images/hospital-hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 47, 108, 0.9), rgba(0, 85, 170, 0.7));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-buttons a {
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 5px;
+  margin: 5px;
+  display: inline-block;
+}
+
+.btn-emergency {
+  background-color: #003b99;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #003b99;
+  border: 2px solid #003b99;
+}
+
+.footer {
+  background: #f9f9f9;
+  color: #333;
+  padding: 50px 20px;
+  border-top: 3px solid #003b99;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h3, .footer h4 {
+  color: #003b99;
+}
+
+.footer p {
+  margin: 8px 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  color: #555;
+}
+/* Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0a2a66; /* Royal Blue */
+  color: white;
+  border-bottom: 2px solid #e0e0e0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ffcc00; /* Highlight color */
+}
+
+.call-btn {
+  background-color: #ffcc00;
+  color: #0a2a66;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #0a2a66;
+  padding: 10px 0;
+  list-style: none;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.mobile-menu a:hover {
+  background-color: #133b7a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.dropdown-content {
+   display: block;          /* Temporarily set for animation control */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.dropdown-content li {
+  padding: 6px;
+}
+
+.dropdown-content li a {
+  color: black;
+  display: block;
+  padding: 6px;
+}
+
+.dropdown-content li a:hover {
+  background-color: royalblue;
+  color: white;
+}
+
+.dropdown-content.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Ensure dropdown stays within the navbar layer */
+.navbar {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Prevent layout shift below navbar */
+body {
+  padding-top: 80px; /* Adjust depending on your navbar height */
+}
+
+.about-hero {
+  background: url("../images/hospital-hero.jpg") center/cover no-repeat;
+  height: 400px;
+}
+
+/* Stats Section */
+.stats-section {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.stat-box i {
+  font-size: 40px;
+  color: #003b99;
+  margin-bottom: 10px;
+}
+
+.stat-box h2 {
+  font-size: 2rem;
+  color: #003b99;
+  margin-bottom: 5px;
+}
+
+/* Mission Section */
+.mission-section {
+  background-color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.mission-container {
+  max-width: 900px;
+  margin: auto;
+  color: #333;
+}
+
+.mission-container h2 {
+  color: #003b99;
+  margin-bottom: 20px;
+}
+
+/* Values Section */
+.values-section {
+  background-color: #f2f6ff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.values-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.value-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 59, 153, 0.1);
+}
+
+.value-card h3 {
+  color: #003b99;
+  margin-bottom: 15px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Header */
+.hero {
+  background: linear-gradient(135deg, #0059b3, #0099cc);
+  color: #fff;
+  padding: 2rem 0;
+}
+
+.back-btn {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  background: rgba(255,255,255,0.2);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* Main Layout */
+.main-section {
+  padding: 3rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  color: #0059b3;
+  margin-bottom: 1rem;
+}
+
+.sidebar .doctor-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  color: #0077cc;
+  font-weight: bold;
+}
+
+.badge {
+  display: inline-block;
+  background: #0059b3;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.badge.secondary {
+  background: #6c757d;
+}
+
+.badge.outline {
+  background: transparent;
+  color: #0059b3;
+  border: 1px solid #0059b3;
+}
+
+.info p {
+  margin: 0.5rem 0;
+}
+
+/* Book Appointment Card */
+.book-card {
+  background: #0059b3;
+  color: #fff;
+  text-align: center;
+}
+
+.book-card .btn {
+  background: #fff;
+  color: #0059b3;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.book-card .btn:hover {
+  background: #e0e0e0;
+}
+
+/* Expertise */
+.expertise {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+
+.expert-item {
+  background: #f1f4f9;
+  padding: 0.8rem;
+  border-radius: 6px;
+}
+
+/* Footer */
+.footer {
+  background: #003d66;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+/* General Layout */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8fafc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  padding: 4rem 0;
+  text-align: left;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  max-width: 700px;
+}
+
+/* Contact Layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 3rem;
+  margin: 4rem auto;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+  margin-bottom: 1.5rem;
+  color: #0077b6;
+}
+
+/* Form */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+input,
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #00b4d8;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #005f87, #0093b7);
+}
+
+/* Info Section */
+.info-block {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  font-size: 1.8rem;
+  background: #e0f7fa;
+  padding: 0.8rem;
+  border-radius: 10px;
+}
+
+.highlight {
+  color: #0077b6;
+  font-weight: 600;
+}
+
+/* Map */
+.map-card {
+  margin-top: 2rem;
+}
+
+.map-placeholder {
+  height: 250px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #555;
+}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero about-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>About MediCare Hospital</h1>
+    <p>Providing exceptional healthcare with compassion, innovation, and excellence for over 25 years.</p>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat-box">
+      <i class="fa-solid fa-building"></i>
+      <h2>25+</h2>
+      <p>Years of Service</p>
+    </div>
+    <div class="stat-box">
+      <i class="fa-solid fa-user-doctor"></i>
+      <h2>200+</h2>
+      <p>Medical Staff</p>
+    </div>
+    <div class="stat-box">
+      <i class="fa-solid fa-trophy"></i>
+      <h2>50+</h2>
+      <p>Awards Won</p>
+    </div>
+    <div class="stat-box">
+      <i class="fa-solid fa-heart"></i>
+      <h2>100K+</h2>
+      <p>Patients Treated</p>
+    </div>
+  </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mission-section">
+  <div class="mission-container">
+    <h2>Our Mission</h2>
+    <p>
+      At MediCare Hospital, our mission is to provide the highest quality healthcare to our community through excellence in
+      patient care, medical education, and research.
+    </p>
+    <p>
+      Our dedicated doctors, nurses, and support staff ensure every patient receives personalized and compassionate care in a
+      safe, comfortable environment.
+    </p>
+  </div>
+</section>
+
+<!-- Values Section -->
+<section class="values-section">
+  <div class="values-container">
+    <h2>Our Core Values</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Excellence</h3>
+        <p>We uphold the highest standards in everything we do, from patient care to innovation.</p>
+      </div>
+      <div class="value-card">
+        <h3>Compassion</h3>
+        <p>We treat every patient with empathy, respect, and dignity, understanding their unique needs.</p>
+      </div>
+      <div class="value-card">
+        <h3>Innovation</h3>
+        <p>We embrace modern technology and medical advances to deliver exceptional outcomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'includes/footer.html' %}
+{% endblock %}
+
+

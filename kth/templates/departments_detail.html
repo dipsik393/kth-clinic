@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="min-h-screen pt-16">
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-blue-900 to-blue-600 text-white py-12">
+    <div class="container mx-auto px-4">
+     
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Departments
+      </a>
+      <h1 class="text-4xl md:text-5xl font-bold">{{ department.name }}</h1>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Left Column -->
+      <div class="md:col-span-2 space-y-8">
+        <!-- About Department -->
+        <div class="bg-white shadow rounded-lg">
+          <div class="border-b p-5">
+            <h2 class="text-xl font-semibold text-blue-900">About This Department</h2>
+          </div>
+          <div class="p-5 text-gray-700">
+            <p class="mb-4">{{ department.full_description }}</p>
+          </div>
+        </div>
+
+        <!-- Services Offered -->
+        <div class="bg-white shadow rounded-lg">
+          <div class="border-b p-5">
+            <h2 class="text-xl font-semibold text-blue-900">Services Offered</h2>
+          </div>
+          <div class="p-5">
+            <ul class="grid md:grid-cols-2 gap-3">
+              {% for service in department.services %}
+              <li class="flex items-center text-gray-700">
+                <span class="w-2 h-2 bg-blue-700 rounded-full mr-3"></span>
+                {{ service }}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Specialists -->
+        <div class="bg-white shadow rounded-lg">
+          <div class="border-b p-5">
+            <h2 class="text-xl font-semibold text-blue-900">Our Specialists</h2>
+          </div>
+          <div class="p-5 space-y-4">
+            {% for specialist in department.specialists %}
+            <div class="flex items-center gap-4 p-4 bg-gray-100 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 14a4 4 0 10-8 0v6h8v-6zM12 2a4 4 0 100 8 4 4 0 000-8z" />
+              </svg>
+              <div>
+                <h3 class="font-semibold">{{ specialist.name }}</h3>
+                <p class="text-sm text-gray-600">{{ specialist.specialization }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <!-- Contact Info -->
+        <div class="bg-white shadow rounded-lg">
+          <div class="border-b p-5">
+            <h2 class="text-xl font-semibold text-blue-900">Contact Information</h2>
+          </div>
+          <div class="p-5 space-y-4 text-gray-700">
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V9H3v10a2 2 0 002 2z" />
+              </svg>
+              <div>
+                <p class="font-semibold">Hours</p>
+                <p class="text-sm">{{ department.hours }}</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3.6 7.59L5.25 19H19v-2H7.42l1.1-2h7.9a1 1 0 00.93-.64l3.24-7.24A1 1 0 0019.9 5H3z" />
+              </svg>
+              <div>
+                <p class="font-semibold">Phone</p>
+                <p class="text-sm">{{ department.phone }}</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zM12 22s8-4.5 8-10a8 8 0 10-16 0c0 5.5 8 10 8 10z" />
+              </svg>
+              <div>
+                <p class="font-semibold">Location</p>
+                <p class="text-sm">{{ department.location }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book Appointment -->
+        <div class="bg-blue-700 text-white rounded-lg shadow">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-4">Book an Appointment</h3>
+            <p class="mb-6">Schedule a consultation with our specialists today.</p>
+                 <button class="bg-white text-blue-700 font-semibold w-full py-2 px-4 rounded hover:bg-gray-100">
+                Book Now
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% include 'includes/footer.html' %}
+</main>
+{% endblock %}

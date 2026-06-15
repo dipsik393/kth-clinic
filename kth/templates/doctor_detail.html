@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Profile - Dr. Sarah Johnson</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <!-- Header -->
+  <section class="hero">
+    <div class="container">
+      
+        ← Back to Doctors
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container main-section">
+    <div class="grid">
+      
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <img src="{% static 'image/doctor-2.jpg' %}"  alt="{{ doctor.name }}" class="doctor-img">
+          <h1>{{ doctor.name }}</h1>
+          <p class="title">{{ doctor.title }}</p>
+          <span class="badge">{{ doctor.specialization }}</span>
+
+          <div class="info">
+            <p><strong>Experience:</strong> {{ doctor.experience }}</p>
+            <p><strong>Availability:</strong> {{ doctor.availability }}</p>
+          </div>
+        </div>
+
+        <div class="card book-card">
+          <h3>Book Appointment</h3>
+          <p>Schedule a consultation with {{ doctor.name }}</p>
+         
+        </div>
+      </aside>
+
+      <!-- Main Info -->
+      <section class="details">
+
+        <div class="card">
+          <h2>About</h2>
+          <p>{{ doctor.bio }}</p>
+        </div>
+
+        <div class="card">
+          <h2>Education & Training</h2>
+          <ul>
+            {% for edu in doctor.education %}
+              <li>{{ edu }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Certifications</h2>
+          <div class="badges">
+            {% for cert in doctor.certifications %}
+              <span class="badge secondary">{{ cert }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Areas of Expertise</h2>
+          <div class="expertise">
+            {% for area in doctor.expertise %}
+              <div class="expert-item">{{ area }}</div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Languages Spoken</h2>
+          <div class="badges">
+            {% for lang in doctor.languages %}
+              <span class="badge outline">{{ lang }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 KTH Hospital. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+{% endblock %}

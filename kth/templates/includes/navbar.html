@@ -1,0 +1,65 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <h1>MediCare Hospital</h1>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="{% url 'kth:home' %}">Home</a></li>
+      <li><a href="{% url 'kth:about' %}">About</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Departments ▼</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'kth:departments_list' %}">All Departments</a></li>
+          <li><a href="{% url 'kth:department_detail' slug='surgical-department' %}">Surgical Department</a></li>
+          
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Doctors ▼</a>
+        <ul class="dropdown-content">
+          <li><a href="{% url 'kth:doctors_list' %}">All Doctors</a></li>
+           <li><a href="{% url 'kth:doctor_detail' pk=1 %}">Dr. Sarah</a></li>
+          
+        </ul>
+      </li>
+
+      <li><a href="{% url 'kth:contact' %}">Contact</a></li>
+      <li><a href="tel:5551234567" class="phone"><i class="fa fa-phone"></i> (254) 790 980 738</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(dropdown => {
+      const button = dropdown.querySelector(".dropbtn");
+      const content = dropdown.querySelector(".dropdown-content");
+
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Close all other dropdowns first
+        document.querySelectorAll(".dropdown-content").forEach(menu => {
+          if (menu !== content) menu.classList.remove("show");
+        });
+
+        // Toggle the clicked one
+        content.classList.toggle("show");
+      });
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", function(e) {
+      if (!e.target.matches(".dropbtn")) {
+        document.querySelectorAll(".dropdown-content").forEach(menu => {
+          menu.classList.remove("show");
+        });
+      }
+    });
+  });
+</script>
